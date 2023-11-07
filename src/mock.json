@@ -1,5 +1,5 @@
 {
-  "schema": {
+  "jsonSchema": {
     "type": "object",
     "properties": {
       "plan": {
@@ -54,7 +54,7 @@
       "ui:widget": "PlanSelect"
     }
   },
-  "data": {
+  "formData": {
 
   }
 }
