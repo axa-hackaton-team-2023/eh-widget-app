@@ -1,23 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {IChangeEvent} from '@rjsf/core'
+import { IChangeEvent } from '@rjsf/core'
 import Form from '@rjsf/mui'
-import {RegistryFieldsType, RegistryWidgetsType, RJSFSchema, RJSFValidationError} from '@rjsf/utils'
+import {
+  RegistryFieldsType,
+  RegistryWidgetsType,
+  RJSFSchema,
+  RJSFValidationError,
+} from '@rjsf/utils'
 import validator from '@rjsf/validator-ajv8'
-import PlanSelect from "../PlanSelect/PlanSelect.tsx";
-import AnyOf from "../AnyOf/AnyOf.tsx";
+import PlanSelect from '../PlanSelect/PlanSelect.tsx'
+import AnyOf from '../AnyOf/AnyOf.tsx'
 
 const widgets: RegistryWidgetsType = {
-  PlanSelectWidget: PlanSelect
+  PlanSelectWidget: PlanSelect,
 }
 
 const fields: RegistryFieldsType = {
-  AnyOfField: AnyOf
+  AnyOfField: AnyOf,
 }
 
-const templates ={
-}
+const templates = {}
 
-export const EhForm = ({propositionId, schema, uiSchema, data}) => {
+export const EhForm = ({ schema, uiSchema, formData }) => {
   const getQuote = (data: IChangeEvent<unknown, RJSFSchema, any>) => {
     console.log(data)
     console.log('GET QUOTE')
@@ -38,7 +42,7 @@ export const EhForm = ({propositionId, schema, uiSchema, data}) => {
       widgets={widgets}
       schema={schema}
       uiSchema={uiSchema}
-      formData={data}
+      formData={formData}
       validator={validator}
       onChange={(data) => getQuote(data)}
       onSubmit={(data) => issuePolicy(data)}
