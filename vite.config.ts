@@ -25,7 +25,7 @@ export default defineConfig({
   base: '/eh-widget-app/',
   server: {
     proxy: {
-      "/local-proxy/propositions": {
+      "^/local-proxy/propositions": {
         target: 'https://axa-api-platform.eh.dev.app.fioneer.com/api/v1',
         changeOrigin: true,
         secure: false,
