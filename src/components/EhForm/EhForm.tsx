@@ -1,90 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IChangeEvent } from '@rjsf/core'
+import {IChangeEvent} from '@rjsf/core'
 import Form from '@rjsf/mui'
-import { RJSFSchema, RJSFValidationError } from '@rjsf/utils'
+import {RegistryFieldsType, RegistryWidgetsType, RJSFSchema, RJSFValidationError} from '@rjsf/utils'
 import validator from '@rjsf/validator-ajv8'
+import PlanSelect from "../PlanSelect/PlanSelect.tsx";
+import AnyOf from "../AnyOf/AnyOf.tsx";
 
-const schema: RJSFSchema = {
-  type: 'object',
-  required: ['customer'],
-  properties: {
-    customer: {
-      type: 'object',
-      title: 'Personal Information',
-      required: ['firstName', 'lastName'],
-      properties: {
-        salutation: {
-          type: 'string',
-          title: 'Salutation',
-          enum: ['Mr', 'Mrs', 'Dr'],
-        },
-        firstName: {
-          type: 'string',
-          title: 'First Name',
-        },
-        lastName: {
-          type: 'string',
-          title: 'Last Name',
-        },
-      },
-    },
-    pets: {
-      type: 'array',
-      title: 'Pets',
-      items: {
-        type: 'object',
-        required: ['race', 'age'],
-        properties: {
-          race: {
-            type: 'string',
-            title: 'Race',
-            description: 'Dog Race',
-          },
-          age: {
-            title: 'Age',
-            description: 'Dog Age',
-            type: 'integer',
-            minimum: 0,
-            maximum: 30,
-          },
-        },
-      },
-    },
-  },
+const widgets: RegistryWidgetsType = {
+  PlanSelectWidget: PlanSelect
 }
 
-const formData = {
-  pets: [
-    {
-      race: 'Labrador',
-      age: 3,
-    },
-    {
-      race: 'Golden Retriever',
-      age: 2,
-    },
-  ],
+const fields: RegistryFieldsType = {
+  AnyOfField: AnyOf
 }
 
-const uiSchema = {
-  firstName: {
-    'ui:classNames': 'form-control',
-  },
-  age: {
-    'ui:widget': 'range',
-    'ui:classNames': 'form-range',
-  },
-  'ui:submitButtonOptions': {
-    submitText: 'Confirm Details',
-    norender: false,
-    props: {
-      disabled: false,
-      className: 'btn btn-primary',
-    },
-  },
+const templates ={
 }
 
-export const EhForm = () => {
+export const EhForm = ({propositionId, schema, uiSchema, data}) => {
   const getQuote = (data: IChangeEvent<unknown, RJSFSchema, any>) => {
     console.log(data)
     console.log('GET QUOTE')
@@ -101,13 +34,16 @@ export const EhForm = () => {
 
   return (
     <Form
+      fields={fields}
+      widgets={widgets}
       schema={schema}
       uiSchema={uiSchema}
-      formData={formData}
+      formData={data}
       validator={validator}
       onChange={(data) => getQuote(data)}
       onSubmit={(data) => issuePolicy(data)}
       onError={(errors) => handleErrors(errors)}
+      templates={templates}
     />
   )
 }

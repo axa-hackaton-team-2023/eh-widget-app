@@ -1,0 +1,60 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "plan": {
+        "type": "object",
+        "anyOf": [
+          {
+            "properties": {
+              "id": {
+                "type": "string",
+                "default": "1"
+              },
+              "name": {
+                "type": "string",
+                "default": "Basic Insurance"
+              },
+              "price": {
+                "type": "number",
+                "default": 80
+              },
+              "currency": {
+                "type": "string",
+                "default": "CHF"
+              }
+            }
+          },
+          {
+            "properties": {
+              "id": {
+                "type": "string",
+                "default": "2"
+              },
+              "name": {
+                "type": "string",
+                "default": "Premium Insurance"
+              },
+              "price": {
+                "type": "number",
+                "default": 140
+              },
+              "currency": {
+                "type": "string",
+                "default": "CHF"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "uiSchema": {
+    "plan": {
+      "ui:widget": "PlanSelect"
+    }
+  },
+  "data": {
+
+  }
+}
