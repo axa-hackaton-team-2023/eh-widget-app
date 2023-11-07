@@ -1,20 +1,19 @@
-import './Button.css'
+import classes from './Button.module.css'
+import {FC} from "react";
+import clsx from "clsx";
 
-import { useState } from 'react'
-
-export const Button = () => {
-  const [state, setState] = useState<number>(0)
+export const Button: FC<any> = ({children, outline = false, selected = false, ...props}) => {
   return (
-    <div>
       <button
+        {...props}
         type="button"
-        id="click-btn"
-        className="shared-btn"
-        onClick={() => setState((s) => s + 1)}
+        className={clsx(classes.button, {
+            [classes.outlinedButton]: outline,
+            [classes.selectedButton]: selected
+        })}
       >
-        Click me bla bla: {state}
+          {children}
       </button>
-    </div>
   )
 }
 
