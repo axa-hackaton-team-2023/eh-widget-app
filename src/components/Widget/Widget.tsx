@@ -36,7 +36,7 @@ export const Widget = ({ propositionId }) => {
             </h3>
 
             <p className="card-title display-5">Pet Insurance</p>
-            <p >Insurance that loves your pet as much as you do</p>
+            <p>Insurance that loves your pet as much as you do</p>
 
              {spec && (
                  <EhForm

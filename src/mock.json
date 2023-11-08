@@ -3,6 +3,7 @@
 
   },
   "uiSchema": {
+    "ui:label": false,
     "plan": {
       "ui:widget": "PlanSelect"
     },
