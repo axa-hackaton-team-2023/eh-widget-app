@@ -22,7 +22,7 @@ const SelectWidget: FC<any> = ({
     }));
 
     const handleChange = (value) => {
-        console.log(value);
+        // console.log(value);
         onChange(value.value);
     };
 

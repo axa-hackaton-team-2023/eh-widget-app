@@ -14,7 +14,7 @@ export const Widget = ({ propositionId }) => {
     fetch(`https://axa-api-platform.eh.dev.app.fioneer.com/api/v1/propositions/${propositionId}/widget-spec`)
       .then((res) => res.json())
       .then((res) => {
-        console.log({...res, uiSchema: mock.uiSchema})
+        // console.log({...res, uiSchema: mock.uiSchema})
         setSpec({...res, uiSchema: mock.uiSchema})
       })
   }, [propositionId])
