@@ -15,7 +15,6 @@ const SelectWidget: FC<any> = ({
   onBlur,
   onFocus
 }) => {
-    console.log(value)
     const items = options.enumOptions.map(option => ({
         name: option.label,
         value: option.value,

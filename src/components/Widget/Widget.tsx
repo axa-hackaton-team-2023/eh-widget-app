@@ -1,6 +1,7 @@
 import EhForm from '../EhForm/EhForm'
 import { useEffect, useState } from 'react'
 import mock from '../../mock.json';
+import classes from './Widget.module.scss';
 
 export const Widget = ({ propositionId }) => {
   const [spec, setSpec] = useState<any>(null)
@@ -19,26 +20,33 @@ export const Widget = ({ propositionId }) => {
   }, [propositionId])
 
   return (
-    <div className="card">
+    <div className={classes.widgetCard}>
       <img
+         style={{
+             width: '100%'
+         }}
         src="https://brandcenter.axa.ch/m/66513f897677d0ee/WIDE_1920_480_WebP-frau_hund_lachen_balkon_gluecklich_web.webp"
         alt="card banner"
       />
 
       <div className="card-body pt-4">
-        <h3 className="card-subtitle text-secondary">
-          Axa <span className="text-muted">dog first insurance</span>
-        </h3>
+          <div className={classes.widgetCardContent}>
+            <h3 className="card-subtitle text-secondary">
+              Axa <span className="text-muted">dog first insurance</span>
+            </h3>
 
-        <p className="card-title display-5">Pet Insurance</p>
-        <p className="card-text">Insurance that loves your pet as much as you do</p>
-          {spec && (
-            <EhForm
-              schema={spec.jsonSchema}
-              uiSchema={spec.uiSchema}
-              formData={spec.formData}
-            />
-          )}
+            <p className="card-title display-5">Pet Insurance</p>
+            <p >Insurance that loves your pet as much as you do</p>
+
+             {spec && (
+                 <EhForm
+                     schema={spec.jsonSchema}
+                     uiSchema={spec.uiSchema}
+                     formData={spec.formData}
+                 />
+             )}
+         </div>
+
       </div>
     </div>
   )
