@@ -16,7 +16,7 @@
 .planSelectItemHeader{
   border-radius: 4px;
   background: var(--ui-theme-card-background, #4976BA);
-  color: #fff;
+  color: var(--ui-theme-card-color, #fff);
   padding: 16px;
   display: flex;
   flex-direction: column;
