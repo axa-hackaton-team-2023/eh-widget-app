@@ -7,7 +7,10 @@ export const Widget = ({ propositionId }) => {
 
   useEffect(() => {
     // setSpec(mock);
-    fetch(`/local-proxy/propositions/${propositionId}/widget-spec`)
+
+    // FOR DEV ENV
+    // fetch(`local-proxy/propositions/${propositionId}/widget-spec`)
+    fetch(`https://axa-api-platform.eh.dev.app.fioneer.com/api/v1/propositions/${propositionId}/widget-spec`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res)

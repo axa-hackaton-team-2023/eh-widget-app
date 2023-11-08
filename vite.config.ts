@@ -23,14 +23,15 @@ export default defineConfig({
     cssCodeSplit: false
   },
   base: '/eh-widget-app/',
-  server: {
-    proxy: {
-      "^/local-proxy/propositions": {
-        target: 'https://axa-api-platform.eh.dev.app.fioneer.com/api/v1',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/local-proxy/, ""),
-      },
-    },
-  },
+  // FOR DEV ENV
+  // server: {
+  //   proxy: {
+  //     "^/local-proxy/propositions": {
+  //       target: 'https://axa-api-platform.eh.dev.app.fioneer.com/api/v1',
+  //       changeOrigin: true,
+  //       secure: false,
+  //       rewrite: (path) => path.replace(/^\/local-proxy/, ""),
+  //     },
+  //   },
+  // },
 })
