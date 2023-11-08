@@ -1,25 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IChangeEvent } from '@rjsf/core'
-import Form from '@rjsf/mui'
-import {
-  RegistryFieldsType,
-  RegistryWidgetsType,
-  RJSFSchema,
-  RJSFValidationError,
-} from '@rjsf/utils'
+import Form, {IChangeEvent} from '@rjsf/core'
+import {RegistryFieldsType, RegistryWidgetsType, RJSFSchema, RJSFValidationError,} from '@rjsf/utils'
 import validator from '@rjsf/validator-ajv8'
 import PlanSelect from '../PlanSelect/PlanSelect.tsx'
 import AnyOf from '../AnyOf/AnyOf.tsx'
+import SelectWidget from "../SelectWidget/SelectWidget.tsx";
+import ObjectFieldTemplate from "../ObjectFieldTemplate/ObjectFieldTemplate.tsx";
+import AddonSelect from "../AddonSelect/AddonSelect.tsx";
+import FieldTemplate from "../FieldTemplate/FieldTemplate.tsx";
 
 const widgets: RegistryWidgetsType = {
-  PlanSelectWidget: PlanSelect,
+  SelectWidget: SelectWidget,
+  AddonSelectWidget: AddonSelect
 }
 
 const fields: RegistryFieldsType = {
-  AnyOfField: AnyOf,
+  AnyOfField: AnyOf
 }
 
-const templates = {}
+const templates = {
+  ObjectFieldTemplate,
+  FieldTemplate
+}
 
 export const EhForm = ({ schema, uiSchema, formData }) => {
   const getQuote = (data: IChangeEvent<unknown, RJSFSchema, any>) => {

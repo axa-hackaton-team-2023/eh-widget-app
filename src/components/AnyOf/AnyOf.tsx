@@ -7,7 +7,7 @@ const AnyOfWidgets = {
 }
 
 const AnyOf: FC<any> = (props) => {
-  const widget = props.uiSchema['ui:widget']
+  const widget = props.uiSchema && props.uiSchema['ui:widget']
 
   if (widget) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

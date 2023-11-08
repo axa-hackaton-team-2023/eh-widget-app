@@ -1,6 +1,6 @@
 import EhForm from '../EhForm/EhForm'
 import { useEffect, useState } from 'react'
-import mock from '../../mock.json'
+import mock from '../../mock.json';
 
 export const Widget = ({ propositionId }) => {
   const [spec, setSpec] = useState<any>(null)
@@ -13,8 +13,8 @@ export const Widget = ({ propositionId }) => {
     fetch(`https://axa-api-platform.eh.dev.app.fioneer.com/api/v1/propositions/${propositionId}/widget-spec`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
-        setSpec(res)
+        console.log({...res, uiSchema: mock.uiSchema})
+        setSpec({...res, uiSchema: mock.uiSchema})
       })
   }, [propositionId])
 
@@ -32,7 +32,6 @@ export const Widget = ({ propositionId }) => {
 
         <p className="card-title display-5">Pet Insurance</p>
         <p className="card-text">Insurance that loves your pet as much as you do</p>
-        <div className="px-11">
           {spec && (
             <EhForm
               schema={spec.jsonSchema}
@@ -40,7 +39,6 @@ export const Widget = ({ propositionId }) => {
               formData={spec.formData}
             />
           )}
-        </div>
       </div>
     </div>
   )

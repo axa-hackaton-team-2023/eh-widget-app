@@ -13,6 +13,7 @@
     "format:fix": "prettier --write ./src"
   },
   "dependencies": {
+    "@axa-ch/dropdown": "^12.0.4",
     "@rjsf/core": "^5.13.2",
     "@rjsf/mui": "^5.13.2",
     "@rjsf/utils": "^5.13.2",
