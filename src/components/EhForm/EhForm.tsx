@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Form, { IChangeEvent } from '@rjsf/core'
 import {
-  RegistryFieldsType,
   RegistryWidgetsType,
   RJSFSchema,
   RJSFValidationError,
@@ -19,8 +18,8 @@ const widgets: RegistryWidgetsType = {
   AddonSelectWidget: AddonSelect,
 }
 
-const fields: RegistryFieldsType = {
-  AnyOfField: AnyOf,
+const fields ={
+  AnyOfField: AnyOf
 }
 
 const templates = {
@@ -60,13 +59,6 @@ export const EhForm = ({ schema, uiSchema, formData }) => {
   }
 
   return (
-    <>
-      {priceData &&
-        priceData.planPrice.map((price: any) => (
-          <div>
-            {price.planId} - {price.price}
-          </div>
-        ))}
       <Form
         fields={fields}
         widgets={widgets}
@@ -78,8 +70,10 @@ export const EhForm = ({ schema, uiSchema, formData }) => {
         onSubmit={(data) => issuePolicy(data)}
         onError={(errors) => handleErrors(errors)}
         templates={templates}
+          formContext={{
+              priceData
+          }}
       />
-    </>
   )
 }
 

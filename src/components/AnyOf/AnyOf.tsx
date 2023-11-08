@@ -1,12 +1,11 @@
 import PlanSelect from '../PlanSelect/PlanSelect.tsx'
-import { FC } from 'react'
 import AnyOfField from '@rjsf/core/lib/components/fields/MultiSchemaField'
 
 const AnyOfWidgets = {
   PlanSelect: PlanSelect,
 }
 
-const AnyOf: FC<any> = (props) => {
+const AnyOf  = (props: any) => {
   const widget = props.uiSchema && props.uiSchema['ui:widget']
 
   if (widget) {

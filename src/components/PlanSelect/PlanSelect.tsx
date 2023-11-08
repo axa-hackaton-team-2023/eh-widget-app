@@ -10,6 +10,7 @@ interface PlanItem {
 const PlanSelect: FC<any> = ({ schema, uiSchema, onChange, ...props }) => {
   const items = schema.anyOf
 
+  const planPrices = props.formContext?.priceData?.planPrice || [];
 
   return (
     <div className={classes.planSelect}>
@@ -18,12 +19,14 @@ const PlanSelect: FC<any> = ({ schema, uiSchema, onChange, ...props }) => {
 
         const selected = props.formData.id === plan.id.default
 
+        const planPrice = planPrices.find(item => item.planId == plan.id.default);
+
         return (
           <div className={classes.planSelectItem} key={plan.id.default}>
             <div className={classes.planSelectItemHeader}>
               <div className={classes.planTitle}>{plan.name.default}</div>
               <div className={classes.planPrice}>
-                {plan.price?.default} {plan.currency?.default}
+                {planPrice?.price} CHF
               </div>
               <div className={classes.planDescription}>{
 

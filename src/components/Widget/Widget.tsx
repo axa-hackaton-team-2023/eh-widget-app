@@ -31,8 +31,8 @@ export const Widget = ({ propositionId }) => {
 
       <div className="card-body pt-4">
           <div className={classes.widgetCardContent}>
-            <h3 className="card-subtitle text-secondary">
-              Axa <span className="text-muted">dog first insurance</span>
+            <h3>
+              AXA dog first insurance
             </h3>
 
             <p className="card-title display-5">Pet Insurance</p>
