@@ -1,18 +1,15 @@
 import classes from './PlanModule.module.scss'
 import { FC } from 'react'
 import Button from '../Button/Button.tsx'
+import AXAList from "../AXAList/AXAList.tsx";
 
 interface PlanItem {
-  properties: {
-    name: any
-    id: any
-    price?: any
-    currency?: any
-  }
+  properties: any
 }
 
 const PlanSelect: FC<any> = ({ schema, uiSchema, onChange, ...props }) => {
   const items = schema.anyOf
+
 
   return (
     <div className={classes.planSelect}>
@@ -28,7 +25,9 @@ const PlanSelect: FC<any> = ({ schema, uiSchema, onChange, ...props }) => {
               <div className={classes.planPrice}>
                 {plan.price?.default} {plan.currency?.default}
               </div>
-              <div className={classes.planDescription}>{}</div>
+              <div className={classes.planDescription}>{
+
+              }</div>
 
               <Button
                 selected={selected}
@@ -61,7 +60,19 @@ const PlanSelect: FC<any> = ({ schema, uiSchema, onChange, ...props }) => {
               </Button>
             </div>
 
-            <div className={classes.planSelectItemContent}></div>
+            <div className={classes.planSelectItemContent}>
+              <AXAList icon={`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%231cc54e" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`} variant={'icon'}>
+                {plan.coverages.enum.map((coverage: any) => {
+                  return (
+                      <li style={{
+                        backgroundPosition: '0 0',
+                        fontSize: '12px'
+                      }}>{coverage}</li>
+                  )
+                })}
+              </AXAList>
+
+            </div>
           </div>
         )
       })}

@@ -1,15 +1,17 @@
 import classes from './AddonSelectWidget.module.scss';
-import FieldTemplate from "@rjsf/mui/lib/FieldTemplate";
+import AXACheckbox from "../AXACheckbox/AXACheckbox.tsx";
 
-const AddonSelect = ({label, ...props}) => {
-    console.log(props);
+const AddonSelect = ({label, value, onChange, ...props}) => {
+
+    console.log(value);
     return (
         <div className={classes.addonSelect}>
-            {label}
+            <AXACheckbox label={label} checked={value === '1'} variant={'checkmark'} onChange={(e) => {
+                // @ts-ignore
+                onChange(e.target.checked ? '1' : '2')
+            }}/>
         </div>
     )
 }
-
-FieldTemplate
 
 export default AddonSelect;

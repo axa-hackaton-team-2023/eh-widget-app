@@ -22,7 +22,7 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: false
   },
-  base: '/eh-widget-app/',
+  // base: '/eh-widget-app/',
   // FOR DEV ENV
   // server: {
   //   proxy: {

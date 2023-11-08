@@ -10,12 +10,16 @@
     "Tariff Entity":  {
       "Pet-24h-Hotline": {
         "ui:widget": "AddonSelectWidget",
+        "ui:label": false,
+        "ui:grid-column": "1"
       },
       "Precondition Coverages": {
         "ui:widget": "AddonSelectWidget",
+        "ui:label": false,
+        "ui:grid-column": "2"
       },
       "Retention": {
-        "ui:widget": "AddonSelectWidget",
+        "ui:grid-column": "span 2"
       }
     }
   },

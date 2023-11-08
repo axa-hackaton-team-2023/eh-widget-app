@@ -4,31 +4,29 @@ import createAXADropdownReact from '@axa-ch/dropdown/lib/index.react';
 const AXADropdownReact = createAXADropdownReact(React.createElement);
 
 const SelectWidget: FC<any> = ({
-                          id,
-                          options,
-                          value,
-                          required,
-                          disabled,
-                          readonly,
-                          autofocus,
-                          onChange,
-                          onBlur,
-                          onFocus
-                      }) => {
-    // Map options.enumOptions to items for AXADropdown
+  id,
+  options,
+  value,
+  required,
+  disabled,
+  readonly,
+  autofocus,
+  onChange,
+  onBlur,
+  onFocus
+}) => {
+    console.log(value)
     const items = options.enumOptions.map(option => ({
         name: option.label,
         value: option.value,
         isSelected: option.value === value
     }));
 
-    // Handle change event to propagate to the form
     const handleChange = (value) => {
         console.log(value);
         onChange(value.value);
     };
 
-    // Return the AXADropdownReact with mapped props
     return (
         <AXADropdownReact
             key={id}

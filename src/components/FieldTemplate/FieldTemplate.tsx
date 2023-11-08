@@ -30,7 +30,9 @@ export default function FieldTemplate<
         return <div className='hidden'>{children}</div>;
     }
     return (
-        <WrapIfAdditionalTemplate {...props}>
+        <WrapIfAdditionalTemplate {...props} style={{
+            gridColumn: uiOptions['grid-column']
+        }}>
             {displayLabel && <Label label={label} required={required} id={id} />}
             {displayLabel && description ? description : null}
             {children}

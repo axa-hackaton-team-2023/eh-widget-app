@@ -5,4 +5,8 @@
   background: var(--ui-design-white, #FFF);
 
   box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-display: row;
+  gap: 8px;
 }
