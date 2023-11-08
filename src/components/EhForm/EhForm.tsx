@@ -27,14 +27,14 @@ const templates = {
   FieldTemplate,
 }
 
-export const EhForm = ({ schema, uiSchema, formData }) => {
+export const EhForm = ({ propositionId, schema, uiSchema, formData }) => {
   const [priceData, setPriceData] = useState<any>(null)
   const [internalFormData, setInternalFormData] = useState<any>(formData)
 
   const getQuote = (e: IChangeEvent<unknown, RJSFSchema, any>) => {
     if (!e?.formData) return
     fetch(
-      'https://axa-api-platform.eh.dev.app.fioneer.com/api/v1/propositions/4/quote/calculation',
+      `https://axa-api-platform.eh.dev.app.fioneer.com/api/v1/propositions/${propositionId}/quote/calculation`,
       {
         method: 'POST',
         headers: {

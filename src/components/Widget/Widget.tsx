@@ -40,6 +40,7 @@ export const Widget = ({ propositionId }) => {
 
              {spec && (
                  <EhForm
+                     propositionId={propositionId}
                      schema={spec.jsonSchema}
                      uiSchema={spec.uiSchema}
                      formData={spec.formData}
